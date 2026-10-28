@@ -40,6 +40,10 @@ Firebase
 
 É necessário usar seu próprio projeto. A configuração do Firebase da professora foi retirada desta versão.
 
+A configuração Android atual usa o projeto blocodenotas-717e4, com o pacote com.example.blocodenotasturmab. O arquivo lib/firebase_options.dart foi preenchido a partir do google-services.json baixado do console. Nesta máquina, o JSON está em android/app/google-services.json. Ainda é necessário habilitar Authentication por e-mail/senha, criar o Firestore e publicar as regras nesse projeto.
+
+Em outro computador, baixe o google-services.json do mesmo app Android e coloque-o em android/app/. Para usar outro projeto ou configurar outra plataforma, siga os passos abaixo.
+
 1. No console do Firebase: https://console.firebase.google.com/, crie um projeto.
 2. Em Authentication, habilite o provedor E-mail/senha.
 3. Em Firestore Database, crie o banco padrão (default), escolhendo uma região.
@@ -50,7 +54,7 @@ firebase login
 dart pub global activate flutterfire_cli
 dart pub global run flutterfire_cli:flutterfire configure --project=SEU_PROJETO --platforms=android
 
-Troque SEU_PROJETO pelo ID real do projeto. Mantenha o identificador Android com.example.blocodenotasturmab. O comando deve substituir o arquivo de exemplo lib/firebase_options.dart e gerar android/app/google-services.json. Sem essa configuração, o aplicativo ainda não está pronto para executar no Android.
+Troque SEU_PROJETO pelo ID real do projeto. Mantenha o identificador Android com.example.blocodenotasturmab. O comando atualiza lib/firebase_options.dart e gera android/app/google-services.json. Ambos precisam corresponder ao mesmo app Firebase.
 
 Publique as regras fornecidas:
 
