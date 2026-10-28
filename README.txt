@@ -129,12 +129,12 @@ npm run test:rules
 
 Esse comando usa o projeto fictício demo-bloco-notas, sem acessar um projeto real. Testa o acesso do dono, a recusa de outros usuários e de usuários sem login, e a validação dos dados.
 
-Verificação desta versão: a análise estática e os testes locais foram executados. Os resultados finais estão em VALIDACAO.txt. A revisão e as quatro correções estão em REVISAO.txt. Ainda é necessário testar o aplicativo em um aparelho com o seu Firebase e produzir as capturas reais. Os testes locais não substituem essa etapa.
+Na revisão do código, a análise estática não apontou problemas e os 18 testes de Flutter passaram. Quatro testes das regras passaram no emulador do Firestore. Ainda é necessário testar o aplicativo em um aparelho com o seu Firebase e produzir as capturas reais. Os testes locais não substituem essa etapa.
 
 Capturas e entrega
 
-As capturas reais ainda não estão incluídas porque o projeto Firebase do aluno precisa ser criado. O roteiro e os nomes sugeridos estão em docs/evidencias/README.txt. Depois de produzi-las, inclua as imagens nesta seção, mostrando o aplicativo e os documentos no Firestore.
+As capturas reais ainda não estão incluídas. O projeto Firebase foi criado, mas a configuração e o teste no aparelho ainda estão pendentes. O roteiro e os nomes sugeridos estão em docs/evidencias/README.txt. Depois de produzi-las, liste os caminhos das imagens nesta seção, mostrando o aplicativo e os documentos no Firestore.
 
-Os comandos divididos em commits, o fork e o PR estão em COMMITS.txt.
+O fork está em https://github.com/andrewbrtl/bloco_de_nota_turma_B e o desenvolvimento está na branch melhorias-bloco-notas. Após configurar, testar e adicionar as capturas, abra o PR para a professora.
 
 O enunciado cita A e B em partes diferentes. Esta implementação segue a turma B, conforme a escolha do aluno. O destino previsto do fork e do PR é LopesBrendinha/bloco_de_nota_turma_B, branch main; confirme essa divergência com a professora antes da entrega. Envie no Classroom os links do fork e do PR, pois o enunciado menciona ambos.
