@@ -40,23 +40,20 @@ Firebase
 
 É necessário usar seu próprio projeto. A configuração do Firebase da professora foi retirada desta versão.
 
-A configuração Android atual usa o projeto blocodenotas-717e4, com o pacote com.example.blocodenotasturmab. O arquivo lib/firebase_options.dart foi preenchido a partir do google-services.json baixado do console. Nesta máquina, o JSON está em android/app/google-services.json. Ainda é necessário habilitar Authentication por e-mail/senha, criar o Firestore e publicar as regras nesse projeto.
+A configuração Android fica somente em android/app/google-services.json, fora do Git. O aplicativo chama Firebase.initializeApp(), que utiliza os recursos Android gerados pelo plugin Google Services a partir desse JSON. Não há chave nem identificador do projeto Firebase no código Dart versionado.
 
 Em outro computador, baixe o google-services.json do mesmo app Android e coloque-o em android/app/. Para usar outro projeto ou configurar outra plataforma, siga os passos abaixo.
 
 1. No console do Firebase: https://console.firebase.google.com/, crie um projeto.
 2. Em Authentication, habilite o provedor E-mail/senha.
 3. Em Firestore Database, crie o banco padrão (default), escolhendo uma região.
-4. Instale as ferramentas abaixo. No Windows, use o CMD para os comandos do npm, como indicado nas instruções da professora.
+4. Registre um app Android com o pacote com.example.blocodenotasturmab. Baixe o google-services.json e coloque-o em android/app/. O plugin Google Services já está configurado no Gradle.
+
+Para publicar as regras pelo terminal, instale a ferramenta abaixo. No Windows, use o CMD para os comandos do npm, como indicado nas instruções da professora.
 
 npm install -g firebase-tools
 firebase login
-dart pub global activate flutterfire_cli
-dart pub global run flutterfire_cli:flutterfire configure --project=SEU_PROJETO --platforms=android
-
-Troque SEU_PROJETO pelo ID real do projeto. Mantenha o identificador Android com.example.blocodenotasturmab. O comando atualiza lib/firebase_options.dart e gera android/app/google-services.json. Ambos precisam corresponder ao mesmo app Firebase.
-
-Publique as regras fornecidas:
+Publique as regras fornecidas, trocando SEU_PROJETO pelo ID real do projeto:
 
 firebase deploy --only firestore:rules --project=SEU_PROJETO
 
@@ -68,9 +65,9 @@ flutter pub get
 flutter devices
 flutter run -d ID_DO_DISPOSITIVO
 
-Substitua ID_DO_DISPOSITIVO pelo identificador Android exibido. Para iOS, configure também a plataforma ios pelo FlutterFire e execute em um Mac com Xcode. A implementação de SQLite usada aqui é para Android/iOS; as pastas web da base não significam que o banco funcione no navegador.
+Substitua ID_DO_DISPOSITIVO pelo identificador Android exibido. Para iOS, registre o app no Firebase, adicione o GoogleService-Info.plist ao target Runner pelo Xcode e execute em um Mac. A configuração atual foi preparada para Android; iOS ainda precisa ser configurado e testado. A implementação de SQLite usada aqui é para Android/iOS; as pastas web da base não significam que o banco funcione no navegador.
 
-O arquivo firebase_options.dart gerado contém a configuração pública do aplicativo cliente. A proteção dos dados depende da autenticação e das regras. Não coloque senha, chave privada ou arquivo de conta de serviço no repositório. google-services.json, .firebaserc, .env e arquivos comuns de conta de serviço estão no .gitignore; a configuração deve ser gerada novamente em cada ambiente.
+A proteção dos dados depende da autenticação e das regras publicadas no Firebase. Manter a configuração fora do Git não substitui essas regras: o app compilado contém a configuração do cliente. Não coloque senha, chave privada ou arquivo de conta de serviço no repositório. Arquivos google-services*.json, GoogleService-Info*.plist, lib/firebase_options*.dart, .firebaserc, .env e arquivos comuns de conta de serviço estão no .gitignore. Cada ambiente deve receber sua configuração local.
 
 Organização e alterações
 

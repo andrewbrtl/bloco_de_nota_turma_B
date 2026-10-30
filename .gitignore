@@ -45,8 +45,9 @@ app.*.map.json
 /android/app/release
 
 # Configuração local e credenciais
-android/app/google-services.json
-ios/Runner/GoogleService-Info.plist
+google-services*.json
+GoogleService-Info*.plist
+lib/firebase_options*.dart
 .firebaserc
 .firebase/
 firebase-debug.log

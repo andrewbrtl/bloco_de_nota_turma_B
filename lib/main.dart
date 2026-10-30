@@ -1,4 +1,3 @@
-import 'package:blocodenotasturmab/firebase_options.dart';
 import 'package:blocodenotasturmab/screens/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,9 +7,7 @@ import 'package:flutter/material.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+    await Firebase.initializeApp();
     runApp(const MyApp());
   } catch (_) {
     runApp(
